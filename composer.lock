@@ -1,0 +1,205 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "d4dcef28fd616bd2803f5065789fdeba",
+    "content-hash": "5f2fc1a89e120bd0eeb352d174dac7db",
+    "packages": [
+        {
+            "name": "composer/installers",
+            "version": "v1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "MODX Evo",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "moodle",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2017-04-24 06:37:16"
+        },
+        {
+            "name": "pfefferle/wordpress-ostatus",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pfefferle/wordpress-ostatus.git",
+                "reference": "605e88642f1cc085c72c3776c9785d2afaaf13c4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pfefferle/wordpress-ostatus/zipball/605e88642f1cc085c72c3776c9785d2afaaf13c4",
+                "reference": "605e88642f1cc085c72c3776c9785d2afaaf13c4",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "type": "wordpress-plugin",
+            "extra": {
+                "installer-name": "ostatus-for-wordpress"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Pfefferle",
+                    "homepage": "http://notiz.blog/"
+                }
+            ],
+            "description": "A Webmention plugin for WordPress http://wordpress.org/plugins/webmention/",
+            "time": "2017-05-01 12:04:07"
+        },
+        {
+            "name": "pfefferle/wordpress-webfinger",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pfefferle/wordpress-webfinger.git",
+                "reference": "e3396961c8e7a8b1fc3b85ce95d9fec90db0c6a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pfefferle/wordpress-webfinger/zipball/e3396961c8e7a8b1fc3b85ce95d9fec90db0c6a0",
+                "reference": "e3396961c8e7a8b1fc3b85ce95d9fec90db0c6a0",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "~1.0",
+                "php": ">=5.6.0"
+            },
+            "type": "wordpress-plugin",
+            "extra": {
+                "installer-name": "webfinger"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Pfefferle",
+                    "homepage": "http://notiz.blog/"
+                }
+            ],
+            "description": "WebFinger for WordPress",
+            "time": "2017-01-26 22:02:16"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.6.0"
+    },
+    "platform-dev": []
+}

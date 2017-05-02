@@ -1,0 +1,21 @@
+{
+    "name": "pfefferle/wordpress-diaspora",
+    "description": "An extension to the OStatus plugin, to also support parts of the Diaspora Federated Protocol.",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=5.6.0",
+        "composer/installers": "~1.0",
+        "pfefferle/wordpress-ostatus": "*",
+        "pfefferle/wordpress-webfinger": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthias Pfefferle",
+            "email": "matthias@pfefferle.org"
+        }
+    ],
+    "extra": {
+        "installer-name": "diaspora"
+    }
+}
