@@ -108,14 +108,6 @@ class Diaspora_Plugin {
 			'href' => get_author_posts_url( $user->ID, $user->nicename ),
 		);
 
-		if ( function_exists( 'salmon_get_encoded_public_key' ) ) :
-			$array['links'][] = array(
-				'rel' => 'diaspora-public-key',
-				'type' => 'RSA',
-				'href' => salmon_get_encoded_public_key( $user->ID ),
-			);
-		endif;
-
 		return $array;
 	}
 }

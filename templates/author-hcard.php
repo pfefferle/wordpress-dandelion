@@ -147,11 +147,11 @@
 						<span class="searchable">true</span>
 					</dd>
 				</dl>
-				<?php if ( function_exists( 'salmon_get_public_key' ) ) : ?>
+				<?php if ( method_exists( 'Magic_Sig', 'get_public_key' ) ) : ?>
 				<dl class="entity_key">
 					<dt>Key</dt>
 					<dd>
-						<pre class="key"><?php echo salmon_get_public_key( get_the_author_meta( 'ID' ) ); ?></pre>
+						<pre class="key"><?php echo Magic_Sig::get_public_key( get_the_author_meta( 'ID' ) ); ?></pre>
 					</dd>
 				</dl>
 				<?php endif; ?>
