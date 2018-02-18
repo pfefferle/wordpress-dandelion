@@ -102,12 +102,6 @@ class Diaspora_Plugin {
 			'href' => site_url( '/' ),
 		);
 
-		$array['links'][] = array(
-			'rel' => 'http://joindiaspora.com/guid',
-			'type' => 'text/html',
-			'href' => get_author_posts_url( $user->ID, $user->nicename ),
-		);
-
 		return $array;
 	}
 }
