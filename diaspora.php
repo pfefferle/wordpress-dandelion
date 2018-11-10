@@ -85,6 +85,11 @@ class Diaspora_Plugin {
 	 * @uses do_action() Calls 'webfinger_render' to render webfinger data
 	 */
 	public static function parse_request( $wp ) {
+		// check if it is a diaspora request or not
+		if ( ! array_key_exists( 'diaspora', $wp->query_vars ) ) {
+			return;
+		}
+
 		status_header( 202 );
 
 		error_log( print_r( $_POST, true ), 1, get_option( 'admin_email' ) );
