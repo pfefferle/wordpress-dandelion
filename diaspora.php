@@ -27,6 +27,10 @@ class Diaspora_Plugin {
 		add_action( 'template_redirect', array( 'Diaspora_Plugin', 'template_redirect' ) );
 		add_filter( 'query_vars', array( 'Diaspora_Plugin', 'add_query_vars' ) );
 
+		add_filter( 'rewrite_rules_array', array( 'Diaspora_Plugin', 'insert_rewrite_rules' ) );
+
+		add_action( 'parse_request', array( 'Diaspora_Plugin', 'parse_request' ) );
+
 		add_action( 'webfinger_user_data', array( 'Diaspora_Plugin', 'add_webfinger_discovery' ), 10, 3 );
 	}
 
@@ -46,11 +50,14 @@ class Diaspora_Plugin {
 	}
 
 	/**
-	 * Add the 'photos' query variable so Wordpress
-	 * won't mangle it.
+	 * Add query variables
 	 */
 	public static function add_query_vars( $vars ) {
 		$vars[] = 'hcard';
+		$vars[] = 'diaspora';
+		$vars[] = 'type';
+		$vars[] = 'guid';
+
 		return $vars;
 	}
 
@@ -59,6 +66,32 @@ class Diaspora_Plugin {
 	 */
 	public static function add_rewrite_endpoint() {
 		add_rewrite_endpoint( 'hcard', EP_AUTHORS );
+	}
+
+	public static function insert_rewrite_rules( $rules ) {
+		$rules['fetch/([a-z_])/([A-Za-z0-9-_@.:])$'] = 'index.php?diaspora=fetch&type=$matches[1]&guid=$matches[2]';
+		$rules['receive/users/([A-Za-z0-9-_@.:])$'] = 'index.php?diaspora=receive&type=users&guid=$matches[1]';
+		$rules['receive/public$'] = 'index.php?diaspora=receive&type=public';
+
+		return $rules;
+	}
+
+	/**
+	 * Parse the WebFinger request and render the document.
+	 *
+	 * @param WP $wp WordPress request context
+	 *
+	 * @uses apply_filters() Calls 'webfinger' on webfinger data array
+	 * @uses do_action() Calls 'webfinger_render' to render webfinger data
+	 */
+	public static function parse_request( $wp ) {
+		status_header( 202 );
+
+		error_log( print_r( $_POST, true ), 1, get_option( 'admin_email' ) );
+		error_log( print_r( $_GET, true ), 1, get_option( 'admin_email' ) );
+		error_log( print_r( file_get_contents('php://input'), true ), 1, get_option( 'admin_email' ) );
+
+		exit;
 	}
 
 	/**
@@ -70,7 +103,6 @@ class Diaspora_Plugin {
 		global $wp_query;
 
 		if ( isset( $wp_query->query_vars['hcard'] ) && is_author() ) {
-
 			load_template( dirname( __FILE__ ) . '/templates/author-hcard.php' );
 			exit;
 		}
@@ -91,13 +123,13 @@ class Diaspora_Plugin {
 		}
 
 		$array['links'][] = array(
-			'rel' => 'http://microformats.org/profile/hcard',
+			'rel'  => 'http://microformats.org/profile/hcard',
 			'type' => 'text/html',
 			'href' => $hcard_url,
 		);
 
 		$array['links'][] = array(
-			'rel' => 'http://joindiaspora.com/seed_location',
+			'rel'  => 'http://joindiaspora.com/seed_location',
 			'type' => 'text/html',
 			'href' => site_url( '/' ),
 		);
