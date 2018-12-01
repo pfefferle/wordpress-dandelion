@@ -1,5 +1,5 @@
 {
-    "name": "pfefferle/wordpress-diaspora",
+    "name": "pfefferle/wordpress-dandelion",
     "description": "An extension to the OStatus plugin, to also support parts of the Diaspora Federated Protocol.",
     "type": "wordpress-plugin",
     "require": {
@@ -17,6 +17,6 @@
         }
     ],
     "extra": {
-        "installer-name": "diaspora"
+        "installer-name": "dandelion"
     }
 }
